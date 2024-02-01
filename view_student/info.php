@@ -116,7 +116,7 @@
                         </tr>
                 <?php }?>
                 </table>
-                <a style="text-align: center;" href="#">Đổi mật khẩu</a>
+                <a style="text-align: center;" href="./edit_info.php">Đổi mật khẩu</a>
             </div>
         </div>
     </div>
