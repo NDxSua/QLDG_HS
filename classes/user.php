@@ -49,6 +49,13 @@ class user
             }
         }
     }
+
+    public function getinfor($id)
+    {
+        $query = "SELECT * FROM user WHERE id = '$id' ";
+        $result = $this->db->select($query);
+        return $result;
+    }
 }
 
 ?>
