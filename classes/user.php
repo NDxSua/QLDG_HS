@@ -100,6 +100,21 @@ class user
             }
         }
     }
+
+    public function getAll()
+    {
+        $query = "SELECT * FROM user";
+        $mysqli_result = $this->db->select($query);
+        if($mysqli_result)
+        {
+            $result = mysqli_fetch_all($mysqli_result, MYSQLI_ASSOC);
+            return $result;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }
 
 ?>
