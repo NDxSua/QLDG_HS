@@ -17,7 +17,7 @@
     <title>Trang chủ học sinh</title>
 </head>
 <body>
-    <h3>Welcome <?= $name?></h3>
+    <h3 style="text-align: center;">Welcome <?= $name?></h3>
     <div>
         <table>
             <div>
@@ -32,6 +32,6 @@
               <?php }?>
             </div>
         </table>
-    </div>
+    </div><br/>
 </body>
 </html>
