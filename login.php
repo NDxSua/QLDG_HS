@@ -8,6 +8,14 @@
         $password = $_POST['password'];
         $login = $user->login($username, $password);
     }
+
+    session_start();
+
+    if (isset($_SESSION['message']))
+    {
+        echo '<script>alert("' . $_SESSION['message'] . '")</script>';
+        unset($_SESSION['message']);
+    }
 ?>
 
 <!DOCTYPE html>
@@ -19,12 +27,27 @@
 </head>
 <body>
     <div>
+        <table>
+            <div>
+                <a href="./view_student/">Báo cáo</a>
+                <a href="#">Bảng điểm thi đua</a>
+            <?php
+                if(isset($_SESSION['user']) && $_SESSION['user']){ ?>
+                <a href="./info.php">Thông tin cá nhân</a>
+                <a href="../logout.php">Đăng xuất</a>
+               <?php } else{?>
+                <a href="./login.php">Đăng nhập</a>
+              <?php }?>
+            </div>
+        </table>
+    </div><br/>
+    <div>
         <div>
             <form action="login.php" method="POST">
                 <?php
                     if(isset($login))
                     {
-                        echo $login;
+                        echo '<script>alert("' . $login . '")</script>';
                     }
                 ?>
                 <input type="text" name="username" placeholder="Tên đăng nhập"/>
