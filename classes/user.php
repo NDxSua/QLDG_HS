@@ -67,6 +67,11 @@ class user
             $alert = "Vui lòng nhập mật khẩu cũ!";
             return $alert;
         }
+        else if(empty($new_pass))
+        {
+            $alert = "Vui lòng nhập mật khẩu mới!";
+            
+        }
         else
         {
             $query = "SELECT * FROM user WHERE id = '$id' AND password = '$old_pass'";

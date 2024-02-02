@@ -30,7 +30,7 @@
                 <?php
                 if(isset($result))
                 {
-                    echo $result;
+                    echo '<script>alert("' . $result . '")</script>';
                 }
                 ?>
                 <br/>
