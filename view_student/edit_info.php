@@ -14,16 +14,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- jQuery library -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
 
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <title>Cập nhật mật khẩu</title>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" href="./report_list.php">Danh sách báo cáo</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Bảng thi đua</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./info.php">Thông tin cá nhân</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../logout.php">Đăng xuất</a>
+            </li>
+        </ul>
+    </div>
+</nav><br/> 
     <div class="container">
         <div class="col-md-4">
             <form action="edit_info.php" method="POST">
@@ -40,8 +61,7 @@
                 <label>Nhập mật khẩu mới</label>
                 <input type="text" class="form-control" name="new_pass" placeholder="Mật khẩu mới"/>
                 <br/>
-                <input type="submit" class="btn btn-success" name="submit" value="Lưu"/><span> / </span>
-                <a href="info.php">Quay lại</a>
+                <input type="submit" class="btn btn-success" name="submit" value="Lưu"/>
             </form>
         </div>
     </div>
