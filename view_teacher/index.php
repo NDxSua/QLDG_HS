@@ -21,7 +21,7 @@
     <div>
         <table>
             <div>
-                <a href="#">Quản lý báo cáo</a>
+                <a href="./report_list.php">Quản lý báo cáo</a>
                 <a href="#">Thống kê</a>
             <?php
                 if(isset($_SESSION['user']) && $_SESSION['user']){?>

@@ -31,6 +31,27 @@ class report
             return false;
         }
     }
+
+    public function reportList()
+    {
+        $manager_id = Session::get('role_id');
+
+        $query ="SELECT report.id, fullname, class_name, rating_name, comment, created_at
+        FROM class INNER JOIN user ON class.id = user.class_id INNER JOIN report ON user.id = report.user_id INNER JOIN rating ON report.rating_id = rating.id
+        WHERE manager_id = '$manager_id'
+        GROUP BY report.id ASC";
+        $mysqli_result = $this->db->select($query);
+
+        if($mysqli_result)
+        {
+            $result = mysqli_fetch_all($mysqli_result, MYSQLI_ASSOC);
+            return $result;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }
 
 ?>
