@@ -4,8 +4,8 @@
 
     $report = new report();
     $classes = new classes();
-
-    $list_report = $report->reportList();
+    $pageCount = $report->getCountPaging();
+    $list_report = $report->reportList(isset($_GET['page']) ? $_GET['page'] : 1);
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +26,8 @@
     <div>
         <table>
             <div>
-                <a href="./report_list.php">Quản lý báo cáo</a>
+                <a href="./report_list.php">Danh sách báo cáo</a>
+                <a href="#">Quản lý báo cáo</a>
                 <a href="#">Thống kê</a>
             <?php
                 if(isset($_SESSION['user']) && $_SESSION['user']){?>
@@ -62,6 +63,27 @@
        <?php }?>    
         </table>
       <?php }?>
+        <div style="text-align: center;">
+            <a href="./report_list.php?page=<?= (isset($_GET['page'])) ? (($_GET['page'] <= 1) ? 1 : $_GET['page'] - 1) : 1 ?>">&laquo;</a>
+            <?php
+            for ($i = 1; $i <= $pageCount; $i++) {
+                if (isset($_GET['page'])) {
+                    if ($i == $_GET['page']) { ?>
+                        <a href="./report_list.php?page=<?= $i ?>"><?= $i ?></a>
+                    <?php } else { ?>
+                        <a href="./report_list.php?page=<?= $i ?>"><?= $i ?></a>
+                    <?php  }
+                } else {
+                    if ($i == 1) { ?>
+                        <a href="./report_list.php?page=<?= $i ?>"><?= $i ?></a>
+                    <?php  } else { ?>
+                        <a href="./report_list.php?page=<?= $i ?>"><?= $i ?></a>
+                    <?php   } ?>
+                <?php  } ?>
+            <?php }
+            ?>
+            <a href="./report_list.php?page=<?= (isset($_GET['page'])) ? $_GET['page'] + 1 : 2 ?>">&raquo;</a>
+        </div>
     </div>
 </body>
 </html>

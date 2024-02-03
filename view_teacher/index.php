@@ -21,7 +21,8 @@
     <div>
         <table>
             <div>
-                <a href="./report_list.php">Quản lý báo cáo</a>
+                <a href="./report_list.php">Danh sách báo cáo</a>
+                <a href="#">Quản lý báo cáo</a>
                 <a href="#">Thống kê</a>
             <?php
                 if(isset($_SESSION['user']) && $_SESSION['user']){?>
@@ -32,6 +33,6 @@
             <?php }?>
             </div>
         </table>
-    </div>
+    </div><br/>
 </body>
 </html>
