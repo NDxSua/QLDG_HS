@@ -27,15 +27,6 @@
 </head>
 <body>
     <div>
-        <table>
-            <div>
-                <a href="./view_student/">Báo cáo</a>
-                <a href="#">Bảng điểm thi đua</a>
-                <a href="./login.php">Đăng nhập</a>
-            </div>
-        </table>
-    </div><br/>
-    <div>
         <div>
             <form action="login.php" method="POST">
                 <?php
