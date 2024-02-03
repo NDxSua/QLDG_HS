@@ -1,14 +1,14 @@
 <?php
     include_once '../lib/session.php';
-    $name = Session::get('user');
+    include '../classes/user.php';
 
-    if (!isset($_SESSION['user'])) {
-        $_SESSION['message'] = 'Vui lòng đăng nhập.';
-        header("Location: ../login.php");
-        exit();
+    $user = new user();
+    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit']))
+    {
+        $result = $user->update_pass($_POST);
     }
-?>
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,10 +24,9 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-    <title>Trang chủ giáo viên</title>
+    <title>Cập nhật mật khẩu</title>
 </head>
 <body>
-    <h3 style="text-align: center;">Welcome <?= $name?></h3>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
         <ul class="nav">
@@ -49,5 +48,25 @@
         </ul>
     </div>
 </nav><br/>
+    <div class="container">
+        <div class="col-md-4">
+            <form action="./edit_info.php" method="POST">
+                <?php
+                if(isset($result))
+                {
+                    echo '<script>alert("' . $result . '")</script>';
+                }
+                ?>
+                <br/>
+                <label>Nhập mật khẩu cũ</label>
+                <input type="text" class="form-control" name="old_pass" placeholder="Mật khẩu cũ"/>
+
+                <label>Nhập mật khẩu mới</label>
+                <input type="text" class="form-control" name="new_pass" placeholder="Mật khẩu mới"/>
+                <br/>
+                <input type="submit" class="btn btn-success" name="submit" value="Lưu"/>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

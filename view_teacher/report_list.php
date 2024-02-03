@@ -1,9 +1,9 @@
 <?php
     include '../classes/report.php';
     include '../classes/class.php';
-
+    
     $report = new report();
-    $classes = new classes();
+    $classes = new classes(); 
     $pageCount = $report->getCountPaging();
     $list_report = $report->reportList(isset($_GET['page']) ? $_GET['page'] : 1);
 ?>
@@ -39,7 +39,7 @@
                 <a class="nav-link" href="#">Thống kê</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Thông tin cá nhân</a>
+                <a class="nav-link" href="./info.php">Thông tin cá nhân</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="../logout.php">Đăng xuất</a>
